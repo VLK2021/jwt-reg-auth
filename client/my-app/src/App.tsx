@@ -24,18 +24,6 @@ const App: FC = () => {
     }
 
 
-    async function getUsers() {
-        try {
-            const response = await UserService.fetchUsers();
-            setUsers(response.data);
-        } catch (e) {
-            console.log(e);
-        }
-    }
-
-
-
-
     if (!store.isAuth) {
         return (
             <div>
@@ -43,6 +31,16 @@ const App: FC = () => {
                 <button onClick={getUsers}>Users</button>
             </div>
         )
+    }
+
+
+    async function getUsers() {
+        try {
+            const response = await UserService.fetchUsers();
+            setUsers(response.data);
+        } catch (e) {
+            console.log(e);
+        }
     }
 
 
